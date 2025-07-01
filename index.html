@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KTHumanoid: A robust, 3D-printed, and open-source humanoid robot platform for machine learning research</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">KTHumanoid: A robust, 3D-printed, and open-source humanoid robot platform for machine learning research</h1>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://your-code-website.com" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (coming soon)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://your-paper-website.com" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (coming soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="main-video" autoplay muted loop playsinline controls poster="content/wave_image.jpg" style="width:100%; max-width:700px; display:block; margin:0 auto 2rem auto;">
+        <source src="content/wave.mov" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Commercially available humanoid robots are expensive and not always open and extensible, concerning both hardware and software. In contrast, there is an increased interest in low-cost 3D-printed robots that can be easily extended and reconfigured to meet various research needs.  Although a growing number of open-source robots have recently been released, existing platforms are either not completely open or not designed for strength and precision. In this paper, we present KTHumanoid, a completely open-source humanoid platform that is designed specifically for robustness and precision. The design combines 3D printed parts, high-quality servo motors, and bearings, making the 24-degree-of-freedom robot both agile and robust. We evaluate the platform in two competitive settings: inverse kinematics for precise end-effector movements and real-time human imitation, where the robot shadows human motions using a standard 2D camera.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <div class="columns is-multiline is-centered">
+          <div class="column is-half has-text-centered">
+            <video src="content/dance.mov" controls autoplay loop muted poster="content/dance_image.jpg" style="width:100%; max-width:420px; object-fit:contain;"></video>
+          </div>
+          <div class="column is-half has-text-centered">
+            <img src="content/gesture.jpg" alt="Gesture" style="width:100%; max-width:420px; object-fit:contain;" />
+          </div>
+          <div class="column is-half has-text-centered">
+            <img src="content/split.jpg" alt="Split" style="width:100%; max-width:420px; object-fit:contain;" />
+          </div>
+          <div class="column is-half has-text-centered">
+            <img src="content/sidesplit.jpg" alt="Side Split" style="width:100%; max-width:420px; object-fit:contain;" />
+          </div>
+          <div class="column is-half has-text-centered">
+            <img src="content/sit.jpg" alt="Sit" style="width:100%; max-width:420px; object-fit:contain;" />
+          </div>
+          <div class="column is-half has-text-centered">
+            <video src="content/pushups.mov" controls autoplay loop muted poster="content/pushup_image.jpg" style="width:100%; max-width:420px; object-fit:contain;"></video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container has-text-centered">
+    <div class="content">
+      <p>
+        Website borrowed from <a href="https://nerfies.github.io/" style="color:inherit; text-decoration:none;"><span class="dnerf">Nerfies</span></a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
