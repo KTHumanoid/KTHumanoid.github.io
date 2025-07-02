@@ -36,6 +36,19 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    .pipeline-video {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+    }
+    .gallery-media {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  </style>
 </head>
 <body>
 
@@ -94,27 +107,66 @@
         </div>
       </div>
     </div>
+
+    <!-- Motion Mimicking Pipeline Section -->
+    <h2 class="title is-3 has-text-centered" style="margin-top:3rem;">Motion Mimicking Pipeline</h2>
+
+    <div class="columns is-centered motion-row" style="margin-top: 1.5rem;">
+      <!-- AMASS original -->
+      <div class="column is-one-fifth has-text-centered">
+        <video src="content/amass_adult.mov" controls autoplay muted class="sync-video pipeline-video"></video>
+        <p class="is-size-7 mt-2">Video from AMASS dataset</p>
+      </div>
+      <!-- AMASS retargeted -->
+      <div class="column is-one-fifth has-text-centered">
+        <video src="content/amass_kid.mov" controls autoplay muted class="sync-video pipeline-video"></video>
+        <p class="is-size-7 mt-2">AMASS shape retargeted to KTHumanoid</p>
+      </div>
+      <!-- IK joint angles -->
+      <div class="column is-one-fifth has-text-centered">
+        <video src="content/wave_mujoco.mov" controls autoplay muted class="sync-video pipeline-video"></video>
+        <p class="is-size-7 mt-2">Joint angles for KTHumanoid found via IK</p>
+      </div>
+      <!-- RL policy simulated -->
+      <div class="column is-one-fifth has-text-centered">
+        <video src="content/wave_isaacgym.mov" controls autoplay muted class="sync-video pipeline-video"></video>
+        <p class="is-size-7 mt-2">Policy in IsaacGym mimicking previous motion</p>
+      </div>
+      <!-- RL policy real -->
+      <div class="column is-one-fifth has-text-centered">
+        <video src="content/wave_real.mov" controls autoplay muted class="sync-video pipeline-video"></video>
+        <p class="is-size-7 mt-2">Policy deployed on real robot</p>
+      </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <h2 class="title is-3 has-text-centered" style="margin-top:3rem;">Gallery</h2>
+
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <div class="columns is-multiline is-centered" style="margin-top: 6rem;">
+        <div class="columns is-multiline is-centered is-variable is-4" style="margin-top: 2rem;">
           <div class="column is-half has-text-centered">
-            <video src="content/dance.mov" controls autoplay loop muted poster="content/dance_image.jpg" style="width:100%; max-width:420px; object-fit:contain;"></video>
+            <video src="content/dance.mov" controls autoplay loop muted poster="content/dance_image.jpg" class="gallery-media"></video>
           </div>
           <div class="column is-half has-text-centered">
-            <img src="content/gesture.jpg" alt="Gesture" style="width:100%; max-width:420px; object-fit:contain;" />
+            <img src="content/gesture.jpg" alt="Gesture" class="gallery-media" />
           </div>
           <div class="column is-half has-text-centered">
-            <img src="content/split.jpg" alt="Split" style="width:100%; max-width:420px; object-fit:contain;" />
+            <img src="content/split.jpg" alt="Split" class="gallery-media" />
           </div>
           <div class="column is-half has-text-centered">
-            <img src="content/sidesplit.jpg" alt="Side Split" style="width:100%; max-width:420px; object-fit:contain;" />
+            <video src="content/draw_circle.mov" controls autoplay loop muted class="gallery-media"></video>
           </div>
           <div class="column is-half has-text-centered">
-            <img src="content/sit.jpg" alt="Sit" style="width:100%; max-width:420px; object-fit:contain;" />
+            <video src="content/pushups.mov" controls autoplay loop muted poster="content/pushup_image.jpg" class="gallery-media"></video>
           </div>
           <div class="column is-half has-text-centered">
-            <video src="content/pushups.mov" controls autoplay loop muted poster="content/pushup_image.jpg" style="width:100%; max-width:420px; object-fit:contain;"></video>
+            <img src="content/sidesplit.jpg" alt="Side Split" class="gallery-media" />
           </div>
+          <div class="column is-half has-text-centered">
+            <img src="content/sit.jpg" alt="Sit" class="gallery-media" />
+          </div>
+          <div class="column is-half"></div>
         </div>
       </div>
     </div>
@@ -130,6 +182,46 @@
     </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const vids = Array.from(document.querySelectorAll('.sync-video'));
+    if (!vids.length) return;
+    let ready = 0;
+    let ended = 0;
+
+    // Ensure videos don't loop automatically
+    vids.forEach(v => v.removeAttribute('loop'));
+
+    const tryStartAll = () => {
+      if (ready === vids.length) {
+        vids.forEach(v => {
+          v.currentTime = 0;
+          v.play();
+        });
+      }
+    };
+
+    vids.forEach(v => {
+      v.addEventListener('canplaythrough', () => {
+        ready += 1;
+        tryStartAll();
+      }, { once: true });
+
+      v.addEventListener('ended', () => {
+        ended += 1;
+        if (ended === vids.length) {
+          ended = 0;
+          // Restart all videos together
+          vids.forEach(video => {
+            video.currentTime = 0;
+            video.play();
+          });
+        }
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
