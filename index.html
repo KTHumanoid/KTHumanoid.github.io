@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KTHumanoid: A robust, 3D-printed, and open-source humanoid robot platform for machine learning research</title>
 
+  
+
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
@@ -58,6 +60,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">KTHumanoid: A robust, 3D-printed, and open-source humanoid robot platform for machine learning research</h1>
+          <p class="subtitle is-4">Martin Orrje, Arvid Eriksson, David Broman</p>
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
@@ -102,7 +105,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Commercially available humanoid robots are expensive and not always open and extensible, concerning both hardware and software. In contrast, there is an increased interest in low-cost 3D-printed robots that can be easily extended and reconfigured to meet various research needs.  Although a growing number of open-source robots have recently been released, existing platforms are either not completely open or not designed for strength and precision. In this paper, we present KTHumanoid, a completely open-source humanoid platform that is designed specifically for robustness and precision. The design combines 3D printed parts, high-quality servo motors, and bearings, making the 24-degree-of-freedom robot both agile and robust. We evaluate the platform in two competitive settings: inverse kinematics for precise end-effector movements and real-time human imitation, where the robot shadows human motions using a standard 2D camera.
+            Commercially available humanoid robots are expensive and not always open and extensible, concerning both hardware and software. In contrast, there is an increased interest in low-cost 3D-printed robots that can be easily extended and reconfigured to meet various research needs.  Although a growing number of open-source robots have recently been released, existing platforms are either not completely open or not designed for strength and precision. In this paper, we present KTHumanoid, a completely open-source humanoid platform that is designed specifically for robustness and precision. The design combines 3D printed parts, high-quality servo motors, and bearings, making the 24-degree-of-freedom robot both agile and robust. We evaluate the platform in two competitive settings (work in progress): inverse kinematics for precise end-effector movements and real-time human imitation, where the robot shadows human motions using a standard 2D camera.
           </p>
         </div>
       </div>
@@ -125,7 +128,7 @@
       <!-- IK joint angles -->
       <div class="column is-one-fifth has-text-centered">
         <video src="content/wave_mujoco.mov" controls autoplay muted class="sync-video pipeline-video"></video>
-        <p class="is-size-7 mt-2">Joint angles for KTHumanoid found via IK</p>
+        <p class="is-size-7 mt-2">Joint angles for KTHumanoid calculated via inverse kinematics</p>
       </div>
       <!-- RL policy simulated -->
       <div class="column is-one-fifth has-text-centered">
